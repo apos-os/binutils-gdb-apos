@@ -207,6 +207,20 @@ case "${targ}" in
     ;;
 #endif /* BFD64 */
 
+  i[3-7]86-*-apos*)
+    targ_defvec=bfd_elf32_i386_vec
+    targ_secvecs=
+    targ64_selvecs=bfd_elf64_x86_64_vec
+    ;;
+
+#ifdef BFD64
+  x86_64-*-apos*)
+    targ_defvec=bfd_elf64_x86_64_vec
+    targ_secvecs=bfd_elf32_i386_vec
+    want64=true
+    ;;
+#endif /* BFD64 */
+
   am34-*-linux* | am33_2.0-*-linux*)
     targ_defvec=bfd_elf32_am33lin_vec
     ;;

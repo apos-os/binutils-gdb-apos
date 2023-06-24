@@ -439,6 +439,7 @@ ALL_EMULATION_SOURCES = \
 	eaixrs6.c \
 	ealpha.c \
 	ealphavms.c \
+	eapos_i386.c \
 	earcelf.c \
 	earm_epoc_pe.c \
 	earm_wince_pe.c \
@@ -763,6 +764,7 @@ ALL_EMULATION_SOURCES = \
 
 ALL_EMULATIONS = $(ALL_EMULATION_SOURCES:.c=.@OBJEXT@)
 ALL_64_EMULATION_SOURCES = \
+	eapos_x86_64.c \
 	eelf32_x86_64.c \
 	eelf64_aix.c \
 	eelf64_ia64.c \
@@ -2624,6 +2626,15 @@ eelf32xtensa.c: $(srcdir)/emulparams/elf32xtensa.sh $(ELF_DEPS) \
   $(BFDDIR)/elf-bfd.h $(BFDDIR)/libbfd.h $(INCDIR)/elf/xtensa.h \
   $(srcdir)/scripttempl/elfxtensa.sc ${GEN_DEPENDS}
 	${GENSCRIPTS} elf32xtensa "$(tdir_elf32xtensa)"
+
+eapos_i386.c: $(srcdir)/emulparams/apos_i386.sh \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+	${GENSCRIPTS} apos_i386 "$(tdir_apos_i386)"
+
+eapos_x86_64.c: $(srcdir)/emulparams/apos_x86_64.sh \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+	${GENSCRIPTS} apos_x86_64 "$(tdir_apos_x86_64)"
+
 eelf_i386.c: $(srcdir)/emulparams/elf_i386.sh \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 	${GENSCRIPTS} elf_i386 "$(tdir_elf_i386)"

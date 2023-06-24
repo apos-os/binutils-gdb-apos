@@ -164,6 +164,10 @@ hppa*-*-openbsd*)	targ_emul=hppaobsd
 			;;
 i370-*-elf* | i370-*-linux-*) targ_emul=elf32i370
 			;;
+i[3-7]86-*-apos*)       targ_emul=apos_i386
+                        targ64_extra_emuls=apos_x86_64 ;;
+x86_64-*-apos*)         targ_emul=apos_x86_64
+                        targ_extra_emuls=apos_i386 ;;
 i[3-7]86-*-nto-qnx*)	targ_emul=i386nto ;;
 i[3-7]86-*-vsta)	targ_emul=vsta ;;
 i[3-7]86-*-go32)	targ_emul=i386go32 ;;
