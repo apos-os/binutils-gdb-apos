@@ -129,7 +129,7 @@ struct host_callback_struct
      In the case of gdb "exiting" means doing a longjmp back to the main
      command loop.  */
   void (*error) (host_callback *, const char *, ...)
-    ATTRIBUTE_NORETURN ATTRIBUTE_PRINTF_2;
+    ATTRIBUTE_PRINTF_2;
 
   int last_errno;		/* host format */
 
